@@ -154,25 +154,6 @@ first pass: a 512-token cap truncated G3 generations mid-sentence and cost up to
 correction, what was re-measured and what was only argued, is documented in
 [REPORT.md](REPORT.md#6-limitations) along with six other limitations.
 
-## Reproduce
-
-Notebooks run on Kaggle and are resumable: each writes incrementally and skips completed work, so a
-session timeout costs nothing.
-
-| Notebook | Accelerator | Produces |
-|---|---|---|
-| [`01_data_generation.ipynb`](notebooks/01_data_generation.ipynb) | None | `data/processed/`: G1, G2, G3, AO, test |
-| [`02_training.ipynb`](notebooks/02_training.ipynb) | GPU T4 | 14 adapters, `results/results.csv` |
-| [`03_analysis.ipynb`](notebooks/03_analysis.ipynb) | None, GPU for sections 5 and 6 | figures, tables, `results_v2.csv` |
-
-Two gates stop the pipeline rather than let it produce a quietly wrong result. Notebook 01 refuses to
-proceed unless the three granularity levels separate in token length and G3 fits inside
-`max_seq_length`. Notebook 02 verifies loss masking took effect and that training and inference
-formats match before training starts, so a mismatch fails in seconds instead of after 40 minutes.
-
-Use [`results/results_v2.csv`](results/results_v2.csv) for every number.
-`results.csv` is the first pass at the 512-token cap, kept for audit.
-
 ## Full write-up
 
 [REPORT.md](REPORT.md) is the paper-style version: abstract, hypothesis-by-hypothesis results
