@@ -153,9 +153,3 @@ The evaluation token cap turned out to be a real experimental variable, and I go
 first pass: a 512-token cap truncated G3 generations mid-sentence and cost up to 3.33 points. The
 correction, what was re-measured and what was only argued, is documented in
 [REPORT.md](REPORT.md#6-limitations) along with six other limitations.
-
-## Full write-up
-
-[REPORT.md](REPORT.md) is the paper-style version: abstract, hypothesis-by-hypothesis results
-including the two that were rejected, full discussion, nine limitations, and the original PRD kept
-unedited so the gap between plan and execution stays on the record.
